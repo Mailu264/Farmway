@@ -4,6 +4,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Pool;
 using VContainer;
+using VContainer.Unity;
 using Object = UnityEngine.Object;
 
 namespace Farmway.Infrastructure
