@@ -10,87 +10,88 @@ namespace Farmway.Infrastructure
 {
     public class AssetProvider : IAssetProvider
     {
-        private readonly Dictionary<string, List<AsyncOperationHandle>> _usedResources = new();
+        private readonly Dictionary<string, object> _cache = new();
+        private readonly Dictionary<string, AsyncOperationHandle> _handles = new();
 
-        public async UniTask<GameObject> LoadAssetAsync(AssetReference path, CancellationToken ct)
+        private const string WarmupLabel = "Warmup";
+
+        public async UniTask WarmupAsync(CancellationToken ct) =>
+            await LoadAssetsByLabelAsync<GameObject>(WarmupLabel, ct);
+
+        public async UniTask<GameObject> LoadAssetAsync(AssetReference asset, CancellationToken ct)
         {
-            var handle = Addressables.LoadAssetAsync<GameObject>(path);
+            var key = asset.RuntimeKey.ToString();
+
+            if (_cache.TryGetValue(key, out var cached))
+                return (GameObject)cached;
+
+            var handle = Addressables.LoadAssetAsync<GameObject>(asset);
             await handle.ToUniTask(cancellationToken: ct);
 
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            if (handle.Status != AsyncOperationStatus.Succeeded)
             {
-                RegisterForCleanup(path.RuntimeKey.ToString(), handle);
-                return handle.Result;
+                Debug.LogError($"Failed to load asset: {asset}");
+                return null;
             }
 
-            Debug.LogError($"Load prefab by path: {path} error!");
-            return null;
+            _cache[key] = handle.Result;
+            _handles[key] = handle;
+            return handle.Result;
         }
 
-        public async UniTask<TObject> LoadAssetAsync<TObject>(AssetReference path, CancellationToken ct) where TObject : Component
+        public async UniTask<TObject> LoadAssetAsync<TObject>(AssetReference asset, CancellationToken ct) where TObject : Component
         {
-            var handle = Addressables.LoadAssetAsync<GameObject>(path);
-            await handle.ToUniTask(cancellationToken: ct);
+            var key = asset.RuntimeKey.ToString();
 
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            if (_cache.TryGetValue(key, out var cached))
             {
-                handle.Result.TryGetComponent(out TObject component);
-                if (component != null)
-                {
-                    RegisterForCleanup(path.RuntimeKey.ToString(), handle);
-                    return component;
-                }
+                ((GameObject)cached).TryGetComponent(out TObject component);
+                return component;
             }
 
-            Debug.LogError($"Load component {typeof(TObject).Name} from prefab by path: {path} error!");
-            return null;
+            var handle = Addressables.LoadAssetAsync<GameObject>(asset);
+            await handle.ToUniTask(cancellationToken: ct);
+
+            if (handle.Status != AsyncOperationStatus.Succeeded)
+            {
+                Debug.LogError($"Failed to load component {typeof(TObject).Name}: {asset}");
+                return null;
+            }
+
+            _cache[key] = handle.Result;
+            _handles[key] = handle;
+            handle.Result.TryGetComponent(out TObject result);
+            return result;
         }
 
         public async UniTask<List<T>> LoadAssetsByLabelAsync<T>(string label, CancellationToken ct) where T : class
         {
+            if (_cache.TryGetValue(label, out var cached))
+                return (List<T>)cached;
+
             var handle = Addressables.LoadAssetsAsync<T>(label);
             await handle.ToUniTask(cancellationToken: ct);
 
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            if (handle.Status != AsyncOperationStatus.Succeeded)
             {
-                RegisterForCleanup(label, handle);
-                return handle.Result.ToList();
+                Debug.LogError($"Failed to load assets by label: {label}");
+                return new List<T>();
             }
 
-            Debug.LogError($"Load asset by label: {label} error");
-            return new List<T>();
+            var list = handle.Result.ToList();
+            _cache[label] = list;
+            _handles[label] = handle;
+            return list;
         }
 
         public void Cleanup()
         {
-            foreach (var key in _usedResources.Keys.ToList())
-            {
-                for (int i = _usedResources[key].Count - 1; i >= 0; i--)
-                {
-                    var handle = _usedResources[key][i];
+            foreach (var handle in _handles.Values)
+                if (handle.IsValid())
+                    Addressables.Release(handle);
 
-                    if (handle.IsValid())
-                        Addressables.Release(handle);
-
-                    _usedResources[key].RemoveAt(i);
-                }
-
-                _usedResources.Remove(key);
-            }
-        }
-
-        private void RegisterForCleanup<T>(string key, AsyncOperationHandle<T> handle)
-        {
-            if (!handle.IsValid())
-                return;
-
-            if (!_usedResources.TryGetValue(key, out var resourceHandles))
-            {
-                resourceHandles = new List<AsyncOperationHandle>();
-                _usedResources[key] = resourceHandles;
-            }
-
-            resourceHandles.Add(handle);
+            _handles.Clear();
+            _cache.Clear();
         }
     }
 }

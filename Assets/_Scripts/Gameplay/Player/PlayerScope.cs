@@ -1,0 +1,26 @@
+using UnityEngine;
+using VContainer;
+using VContainer.Unity;
+
+namespace Farmway.Gameplay.Player
+{
+    public class PlayerScope : LifetimeScope
+    {
+        [SerializeField] private PlayerView _playerView;
+
+        protected override void Configure(IContainerBuilder builder)
+        {
+            builder.RegisterInstance(_playerView);
+            
+            RegisterPlayerServices(builder);
+            
+            builder.RegisterEntryPoint<PlayerBootstrapper>();
+        }
+
+        private void RegisterPlayerServices(IContainerBuilder builder)
+        {
+            builder.Register<IPlayerServices, PlayerServices>(Lifetime.Scoped).AsImplementedInterfaces();
+            builder.Register<PlayerMovementService>(Lifetime.Scoped).As<PlayerService>();
+        }
+    }
+}

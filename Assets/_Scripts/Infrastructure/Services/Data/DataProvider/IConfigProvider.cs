@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Farmway.Infrastructure
 {
-    public interface IStaticDataProvider
+    public interface IConfigProvider
     {
         UniTask Initialize(CancellationToken ct);
         TData GetConfig<TData>();

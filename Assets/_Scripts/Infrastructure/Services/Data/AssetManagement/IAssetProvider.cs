@@ -8,6 +8,7 @@ namespace Farmway.Infrastructure
 {
     public interface IAssetProvider
     {
+        UniTask WarmupAsync(CancellationToken ct);
         UniTask<GameObject> LoadAssetAsync(AssetReference path, CancellationToken ct);
         UniTask<TObject> LoadAssetAsync<TObject>(AssetReference path, CancellationToken ct) where TObject : Component;
         UniTask<List<T>> LoadAssetsByLabelAsync<T>(string label, CancellationToken ct) where T : class;

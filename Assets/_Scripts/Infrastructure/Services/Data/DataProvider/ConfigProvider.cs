@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace Farmway.Infrastructure
 {
-    public class StaticDataProvider : IStaticDataProvider
+    public class ConfigProvider : IConfigProvider
     {
         private const string Config = "Config";
 
         private readonly IAssetProvider _assetProvider;
         private List<ScriptableObject> _staticData;
 
-        public StaticDataProvider(IAssetProvider assetProvider) =>
+        public ConfigProvider(IAssetProvider assetProvider) =>
             _assetProvider = assetProvider;
 
         public async UniTask Initialize(CancellationToken ct) =>

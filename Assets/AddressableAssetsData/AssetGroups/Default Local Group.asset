@@ -18,13 +18,21 @@ MonoBehaviour:
   - m_GUID: 109e9bdd0fcc649c5bc59085c35bdc83
     m_Address: Assets/Scenes
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Warmup
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d7d31ef7a26b4b729cfdea9df8ee290
     m_Address: Assets/_Data
     m_ReadOnly: 0
     m_SerializedLabels:
     - Config
+    - Warmup
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70ee0352af55e4d35821d68d23095963
+    m_Address: Assets/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Warmup
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d13388713c6c241048ac9b8e96c96eba, type: 2}

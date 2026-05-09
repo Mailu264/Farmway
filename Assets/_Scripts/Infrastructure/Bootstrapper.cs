@@ -7,19 +7,22 @@ namespace Farmway.Infrastructure
     public class Bootstrapper : IAsyncStartable
     {
         private readonly ISceneLoader _sceneLoader;
-        private readonly IStaticDataProvider _staticDataProvider;
+        private readonly IAssetProvider _assetProvider;
+        private readonly IConfigProvider _configProvider;
 
-        public Bootstrapper(ISceneLoader sceneLoader, IStaticDataProvider staticDataProvider)
+        public Bootstrapper(ISceneLoader sceneLoader, IAssetProvider assetProvider, IConfigProvider configProvider)
         {
             _sceneLoader = sceneLoader;
-            _staticDataProvider = staticDataProvider;
+            _assetProvider = assetProvider;
+            _configProvider = configProvider;
         }
 
         public async Awaitable StartAsync(CancellationToken cancellation = default)
         {
-            await _staticDataProvider.Initialize(cancellation);
-
-            var scenesConfig = _staticDataProvider.GetConfig<ScenesConfig>();
+            await _configProvider.Initialize(cancellation);
+            await _assetProvider.WarmupAsync(cancellation);
+            
+            var scenesConfig = _configProvider.GetConfig<ScenesConfig>();
             await _sceneLoader.Load(scenesConfig.GameScene, cancellation);
         }
     }
