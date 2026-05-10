@@ -1,4 +1,4 @@
-namespace Farmway.Gameplay.Player.Services.Camera
+namespace Farmway.Gameplay.Player
 {
     public class PlayerCameraFollowService : PlayerService
     {

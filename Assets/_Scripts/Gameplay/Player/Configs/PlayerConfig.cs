@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Farmway.Infrastructure
+namespace Farmway.Gameplay.Player
 {
     [CreateAssetMenu(fileName = "PlayerConfig", menuName = "Configs/Player/PlayerConfig")]
     public class PlayerConfig : ScriptableObject

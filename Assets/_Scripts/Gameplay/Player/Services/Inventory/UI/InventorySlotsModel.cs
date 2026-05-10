@@ -1,92 +1,271 @@
 using System;
 using Farmway.Infrastructure;
 using UniRx;
-using VContainer.Unity;
+using UnityEngine;
 
-namespace Farmway.Gameplay.Player.Services.Inventory
+namespace Farmway.Gameplay.Player
 {
     public interface IInventorySlotsModel
     {
-        IReadOnlyReactiveDictionary<ItemIdEnum, InventorySlotsData> Slots { get; }
+        IReadOnlyReactiveCollection<InventorySlotData> Slots { get; }
+
+        bool AddItem(ItemIdEnum itemId, int count);
+        bool RemoveItem(ItemIdEnum itemId);
+        bool RemoveItem(ItemIdEnum itemId, int count);
+        bool TryMove(int fromIndex, int toIndex);
     }
 
-    public class InventorySlotsModel : IInventorySlotsModel, IInitializable
+    public class InventorySlotsModel : IInventorySlotsModel
     {
-        private readonly ReactiveDictionary<ItemIdEnum, InventorySlotsData> _slots = new();
+        private const int DefaultSlotsCount = 24;
 
+        private readonly ReactiveCollection<InventorySlotData> _slots = new();
         private readonly IInventoryStorage _inventoryStorage;
-        private readonly IConfigProvider _configProvider;
+        private readonly ItemsConfig _itemsConfig;
 
-        private ItemsConfig _itemsConfig;
-
-        public IReadOnlyReactiveDictionary<ItemIdEnum, InventorySlotsData> Slots => _slots;
+        public IReadOnlyReactiveCollection<InventorySlotData> Slots => _slots;
 
         public InventorySlotsModel(IInventoryStorage inventoryStorage, IConfigProvider configProvider)
         {
             _inventoryStorage = inventoryStorage;
-            _configProvider = configProvider;
+            _itemsConfig = configProvider.GetConfig<ItemsConfig>();
+
+            for (int i = 0; i < DefaultSlotsCount; i++)
+                _slots.Add(InventorySlotData.Empty);
         }
 
-        public void Initialize()
+        public bool AddItem(ItemIdEnum itemId, int count)
         {
-            _itemsConfig = _configProvider.GetConfig<ItemsConfig>();
+            if (count <= 0)
+            {
+                Debug.LogError("Count must be positive");
+                return false;
+            }
 
-            _inventoryStorage.Items.ObserveAdd().Subscribe(pair => OnAddItem(pair.Key, pair.Value));
-            _inventoryStorage.Items.ObserveRemove().Subscribe(pair => OnRemoveItem(pair.Key));
-            _inventoryStorage.Items.ObserveReplace().Subscribe(pair => OnReplaceItem(pair.Key, pair.NewValue));
-        }
-
-        private void OnAddItem(ItemIdEnum itemId, InventoryItemData item)
-        {
             if (!_itemsConfig.TryGetItem(itemId, out ItemData itemData))
+                return false;
+
+            if (!CanPlaceItem(itemId, itemData, count))
+            {
+                Debug.LogError($"Not enough inventory slots for {itemId}");
+                return false;
+            }
+
+            int remaining = count;
+
+            if (itemData.IsStackable)
+                remaining = FillExistingStacks(itemId, Mathf.Max(1, itemData.MaxStackSize), remaining);
+
+            FillEmptySlots(itemId, itemData, remaining);
+            _inventoryStorage.AddItem(itemId, count);
+            return true;
+        }
+
+        public bool RemoveItem(ItemIdEnum itemId)
+        {
+            bool removed = false;
+
+            for (int i = 0; i < _slots.Count; i++)
+            {
+                if (_slots[i].ItemId != itemId)
+                    continue;
+
+                _slots[i] = InventorySlotData.Empty;
+                removed = true;
+            }
+
+            return removed && _inventoryStorage.RemoveItem(itemId);
+        }
+
+        public bool RemoveItem(ItemIdEnum itemId, int count)
+        {
+            if (count <= 0)
+            {
+                Debug.LogError("Count must be positive");
+                return false;
+            }
+
+            if (GetItemsCount(itemId) < count)
+            {
+                Debug.LogError($"Not enough {itemId} in inventory slots");
+                return false;
+            }
+
+            int remaining = count;
+
+            for (int i = _slots.Count - 1; i >= 0 && remaining > 0; i--)
+            {
+                InventorySlotData slot = _slots[i];
+
+                if (slot.ItemId != itemId)
+                    continue;
+
+                int removedCount = Math.Min(slot.Count, remaining);
+                int newCount = slot.Count - removedCount;
+                remaining -= removedCount;
+
+                _slots[i] = newCount > 0
+                    ? new InventorySlotData(slot.ItemId, newCount)
+                    : InventorySlotData.Empty;
+            }
+
+            _inventoryStorage.RemoveItem(itemId, count);
+            return true;
+        }
+
+        public bool TryMove(int fromIndex, int toIndex)
+        {
+            if (!IsValidIndex(fromIndex) || !IsValidIndex(toIndex))
+                return false;
+
+            if (fromIndex == toIndex)
+                return false;
+
+            InventorySlotData from = _slots[fromIndex];
+            InventorySlotData to = _slots[toIndex];
+
+            if (from.IsEmpty)
+                return false;
+
+            if (to.IsEmpty)
+            {
+                _slots[toIndex] = from;
+                _slots[fromIndex] = InventorySlotData.Empty;
+                return true;
+            }
+
+            if (CanMerge(from, to))
+            {
+                MergeStacks(fromIndex, toIndex);
+                return true;
+            }
+
+            _slots[fromIndex] = to;
+            _slots[toIndex] = from;
+            return true;
+        }
+
+        private bool CanPlaceItem(ItemIdEnum itemId, ItemData itemData, int count)
+        {
+            int remaining = count;
+            int maxStackSize = itemData.IsStackable ? Mathf.Max(1, itemData.MaxStackSize) : 1;
+
+            if (itemData.IsStackable)
+            {
+                for (int i = 0; i < _slots.Count && remaining > 0; i++)
+                {
+                    InventorySlotData slot = _slots[i];
+
+                    if (slot.ItemId == itemId && slot.Count < maxStackSize)
+                        remaining -= maxStackSize - slot.Count;
+                }
+            }
+
+            for (int i = 0; i < _slots.Count && remaining > 0; i++)
+            {
+                if (_slots[i].IsEmpty)
+                    remaining -= maxStackSize;
+            }
+
+            return remaining <= 0;
+        }
+
+        private int FillExistingStacks(ItemIdEnum itemId, int maxStackSize, int count)
+        {
+            int remaining = count;
+
+            for (int i = 0; i < _slots.Count && remaining > 0; i++)
+            {
+                InventorySlotData slot = _slots[i];
+
+                if (slot.ItemId != itemId || slot.Count >= maxStackSize)
+                    continue;
+
+                int freeSpace = maxStackSize - slot.Count;
+                int addedCount = Math.Min(freeSpace, remaining);
+
+                _slots[i] = new InventorySlotData(itemId, slot.Count + addedCount);
+                remaining -= addedCount;
+            }
+
+            return remaining;
+        }
+
+        private void FillEmptySlots(ItemIdEnum itemId, ItemData itemData, int count)
+        {
+            int remaining = count;
+            int maxCountInSlot = itemData.IsStackable ? Mathf.Max(1, itemData.MaxStackSize) : 1;
+
+            for (int i = 0; i < _slots.Count && remaining > 0; i++)
+            {
+                if (!_slots[i].IsEmpty)
+                    continue;
+
+                int addedCount = Math.Min(maxCountInSlot, remaining);
+                _slots[i] = new InventorySlotData(itemId, addedCount);
+                remaining -= addedCount;
+            }
+        }
+
+        private bool CanMerge(InventorySlotData from, InventorySlotData to)
+        {
+            if (from.ItemId != to.ItemId)
+                return false;
+
+            if (!_itemsConfig.TryGetItem(from.ItemId, out ItemData itemData))
+                return false;
+
+            return itemData.IsStackable && to.Count < Mathf.Max(1, itemData.MaxStackSize);
+        }
+
+        private void MergeStacks(int fromIndex, int toIndex)
+        {
+            InventorySlotData from = _slots[fromIndex];
+            InventorySlotData to = _slots[toIndex];
+
+            if (!_itemsConfig.TryGetItem(from.ItemId, out ItemData itemData))
                 return;
 
-            _slots.Add(itemId, CalculateSlots(itemData, item.Count));
+            int freeSpace = Mathf.Max(1, itemData.MaxStackSize) - to.Count;
+            int movedCount = Math.Min(freeSpace, from.Count);
+            int remainingCount = from.Count - movedCount;
+
+            _slots[toIndex] = new InventorySlotData(to.ItemId, to.Count + movedCount);
+            _slots[fromIndex] = remainingCount > 0
+                ? new InventorySlotData(from.ItemId, remainingCount)
+                : InventorySlotData.Empty;
         }
 
-        private void OnRemoveItem(ItemIdEnum itemId) =>
-            _slots.Remove(itemId);
+        private bool IsValidIndex(int index) =>
+            index >= 0 && index < _slots.Count;
 
-        private void OnReplaceItem(ItemIdEnum itemId, InventoryItemData newItem)
+        private int GetItemsCount(ItemIdEnum itemId)
         {
-            if (!_itemsConfig.TryGetItem(itemId, out ItemData itemData))
-                return;
+            int count = 0;
 
-            _slots[itemId] = CalculateSlots(itemData, newItem.Count);
-        }
+            for (int i = 0; i < _slots.Count; i++)
+            {
+                if (_slots[i].ItemId == itemId)
+                    count += _slots[i].Count;
+            }
 
-        private InventorySlotsData CalculateSlots(ItemData config, int totalCount)
-        {
-            if (!config.IsStackable)
-                return new InventorySlotsData(config, totalCount, 1);
-
-            int fullSlots = totalCount / config.MaxStackSize;
-            int remainder = totalCount % config.MaxStackSize;
-
-            int slotsCount = fullSlots + (remainder > 0 ? 1 : 0);
-            int countInLastSlot = remainder > 0 ? remainder : config.MaxStackSize;
-
-            return new InventorySlotsData(config, slotsCount, countInLastSlot);
+            return count;
         }
     }
 
-    public class InventorySlotsData
+    public readonly struct InventorySlotData
     {
-        public ItemData Config { get; private set; }
-        public int SlotsCount { get; private set; }
-        public int CountInLastSlot { get; private set; }
+        public static InventorySlotData Empty => new(ItemIdEnum.None, 0);
 
-        public InventorySlotsData(ItemData config, int slotsCount, int countInLastSlot)
+        public ItemIdEnum ItemId { get; }
+        public int Count { get; }
+
+        public bool IsEmpty => ItemId == ItemIdEnum.None || Count <= 0;
+
+        public InventorySlotData(ItemIdEnum itemId, int count)
         {
-            Config = config;
-            SlotsCount = slotsCount;
-            CountInLastSlot = countInLastSlot;
+            ItemId = itemId;
+            Count = Math.Max(0, count);
         }
-
-        public void SetSlotsCount(int slotsCount) =>
-            SlotsCount = Math.Max(0, slotsCount);
-
-        public void SetCountInLastSlot(int countInSlot) =>
-            CountInLastSlot = Math.Max(0, countInSlot);
     }
 }

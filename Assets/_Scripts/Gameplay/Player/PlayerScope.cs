@@ -1,4 +1,3 @@
-using Farmway.Gameplay.Player.Services.Camera;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -23,6 +22,12 @@ namespace Farmway.Gameplay.Player
             builder.Register<IPlayerServices, PlayerServices>(Lifetime.Scoped).AsImplementedInterfaces();
             builder.Register<PlayerMovementService>(Lifetime.Scoped).As<PlayerService>();
             builder.Register<PlayerCameraFollowService>(Lifetime.Scoped).As<PlayerService>();
+            builder.Register<PlayerInventoryService>(Lifetime.Scoped).AsSelf().As<PlayerService>();
+            
+            builder.Register<IInventoryStorage, InventoryStorage>(Lifetime.Scoped);
+            builder.Register<IInventorySlotsModel, InventorySlotsModel>(Lifetime.Scoped);
+            
+            builder.RegisterEntryPoint<InventorySlotsPresenter>();
         }
     }
 }

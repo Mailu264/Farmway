@@ -1,7 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Farmway.Gameplay.Player.Services.Camera
+namespace Farmway.Gameplay.Player
 {
     public class CameraView : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace Farmway.Gameplay.Player.Services.Inventory
+namespace Farmway.Gameplay.Player
 {
     public class PlayerInventoryPresenter
     {

@@ -1,29 +1,28 @@
-using Farmway.Infrastructure;
-
-namespace Farmway.Gameplay.Player.Services.Inventory
+namespace Farmway.Gameplay.Player
 {
     public class PlayerInventoryService : PlayerService
     {
-        private readonly IConfigProvider _configProvider;
-        private readonly IInventoryStorage _inventoryStorage;
+        private readonly IInventorySlotsModel _inventorySlotsModel;
 
-        private ItemsConfig _itemsConfig;
-
-        public PlayerInventoryService(IConfigProvider configProvider, IInventoryStorage inventoryStorage)
+        public PlayerInventoryService(IInventorySlotsModel inventorySlotsModel)
         {
-            _configProvider = configProvider;
-            _inventoryStorage = inventoryStorage;
+            _inventorySlotsModel = inventorySlotsModel;
         }
 
         public override void OnInitialize()
         {
-            _itemsConfig = _configProvider.GetConfig<ItemsConfig>();
+            AddItem(ItemIdEnum.Item1, 10);
+            AddItem(ItemIdEnum.Item1, 7);
+            AddItem(ItemIdEnum.Item1, 4);
         }
 
         public bool AddItem(ItemIdEnum itemId, int count) => 
-            _inventoryStorage.AddItem(itemId, count);
+            _inventorySlotsModel.AddItem(itemId, count);
         
         public bool RemoveItem(ItemIdEnum itemId) =>
-            _inventoryStorage.RemoveItem(itemId);
+            _inventorySlotsModel.RemoveItem(itemId);
+
+        public bool RemoveItem(ItemIdEnum itemId, int count) =>
+            _inventorySlotsModel.RemoveItem(itemId, count);
     }
 }
