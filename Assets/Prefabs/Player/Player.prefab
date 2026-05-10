@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Scripts.Gameplay.Player.PlayerScope
   parentReference:
-    TypeName: _Scripts.Gameplay.GameplayScope
+    TypeName: Farmway.Gameplay.GameplayScope
   autoRun: 1
   autoInjectGameObjects: []
   _playerView: {fileID: 2465530674778777479}
