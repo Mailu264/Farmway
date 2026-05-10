@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using Farmway.Gameplay.UI.PopUp;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using InventoryDragView = Farmway.Gameplay.Player.InventoryDragView;
 
 namespace Farmway.Gameplay.Player
 {
-    public class InventoryView : MonoBehaviour
+    public class InventoryView : PopUpView
     {
         [SerializeField] private InventoryDragView _dragView;
         [SerializeField] private List<InventorySlotView> _inventorySlots = new();

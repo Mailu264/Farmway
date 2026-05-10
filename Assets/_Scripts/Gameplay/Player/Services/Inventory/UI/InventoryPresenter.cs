@@ -6,7 +6,7 @@ using VContainer.Unity;
 
 namespace Farmway.Gameplay.Player
 {
-    public class InventorySlotsPresenter : IInitializable, IDisposable
+    public class InventoryPresenter : IInitializable, IDisposable
     {
         private readonly IInventorySlotsModel _inventorySlotsModel;
         private readonly ItemsConfig _itemsConfig;
@@ -15,7 +15,7 @@ namespace Farmway.Gameplay.Player
         private int _draggedSlotIndex = -1;
         private bool _dropSucceeded;
 
-        public InventorySlotsPresenter(
+        public InventoryPresenter(
             IInventorySlotsModel inventorySlotsModel,
             IConfigProvider configProvider,
             GameplaySceneView gameplaySceneView)

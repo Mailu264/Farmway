@@ -27,7 +27,8 @@ namespace Farmway.Gameplay.Player
             builder.Register<IInventoryStorage, InventoryStorage>(Lifetime.Scoped);
             builder.Register<IInventorySlotsModel, InventorySlotsModel>(Lifetime.Scoped);
             
-            builder.RegisterEntryPoint<InventorySlotsPresenter>();
+            builder.Register<InventoryPresenter>(Lifetime.Scoped).AsImplementedInterfaces();
+            builder.Register<PlayerInventoryPresenter>(Lifetime.Scoped).AsImplementedInterfaces();
         }
     }
 }
