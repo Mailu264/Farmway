@@ -321,7 +321,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03125, y: 0, z: 0}
@@ -877,7 +877,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -947,7 +946,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.3372549, g: 0.7213506, b: 0.7490196, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1035,30 +1034,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
-  m_ComponentVersion: 1
-  m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
-  m_CropFrame: 0
-  m_GridSnapping: 0
-  m_FilterMode: 0
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!1 &527315991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1322,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -10
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7004,7 +6979,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5625, y: 1, z: 0}
@@ -7358,6 +7333,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e54018ce0a4b5ba7abfa721b7ff2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Farmway.Gameplay.Player.Services.Inventory.InventoryView
+--- !u!114 &1477595172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1972987981733849515, guid: bb6bb40dd49bd41a09f49db5d4b154dc, type: 3}
+  m_PrefabInstance: {fileID: 1477595170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78ffafd8540b46caadd621a10e9dd53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Farmway.Gameplay.Player.HotbarView
 --- !u!1 &1605523632
 GameObject:
   m_ObjectHideFlags: 0
@@ -8599,6 +8585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Farmway.Gameplay.GameplaySceneView
   <CameraView>k__BackingField: {fileID: 116734921}
   <InventoryView>k__BackingField: {fileID: 1477595171}
+  <HotbarView>k__BackingField: {fileID: 1477595172}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

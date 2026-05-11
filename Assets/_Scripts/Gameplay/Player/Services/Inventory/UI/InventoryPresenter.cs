@@ -9,121 +9,169 @@ namespace Farmway.Gameplay.Player
     public class InventoryPresenter : IInitializable, IDisposable
     {
         private readonly IInventorySlotsModel _inventorySlotsModel;
+        private readonly IHotbarSlotsModel _hotbarSlotsModel;
+        private readonly IItemSlotTransferService _itemSlotTransferService;
         private readonly ItemsConfig _itemsConfig;
         private readonly InventoryView _inventoryView;
+        private readonly HotbarView _hotbarView;
         private readonly CompositeDisposable _disposables = new();
+        private readonly CompositeDisposable _slotSubscriptions = new();
+
+        private IItemSlotsModel _draggedSlotsModel;
+        private IItemSlotsView _draggedSlotsView;
         private int _draggedSlotIndex = -1;
         private bool _dropSucceeded;
 
         public InventoryPresenter(
             IInventorySlotsModel inventorySlotsModel,
+            IHotbarSlotsModel hotbarSlotsModel,
+            IItemSlotTransferService itemSlotTransferService,
             IConfigProvider configProvider,
             GameplaySceneView gameplaySceneView)
         {
             _inventorySlotsModel = inventorySlotsModel;
+            _hotbarSlotsModel = hotbarSlotsModel;
+            _itemSlotTransferService = itemSlotTransferService;
             _itemsConfig = configProvider.GetConfig<ItemsConfig>();
             _inventoryView = gameplaySceneView.InventoryView;
+            _hotbarView = gameplaySceneView.HotbarView;
         }
 
         public void Initialize()
         {
-            _inventoryView.Initialize();
-            SubscribeSlots();
-
-            DrawAllSlots();
-
-            _inventorySlotsModel.Slots.ObserveReplace()
-                .Subscribe(slot => DrawSlot(slot.Index, slot.NewValue))
-                .AddTo(_disposables);
+            InitializeSlots(_inventorySlotsModel, _inventoryView);
+            InitializeSlots(_hotbarSlotsModel, _hotbarView);
         }
 
         public void Dispose()
         {
-            UnsubscribeSlots();
+            _slotSubscriptions.Dispose();
             _disposables.Dispose();
         }
 
-        private void SubscribeSlots()
+        private void InitializeSlots(IItemSlotsModel slotsModel, IItemSlotsView slotsView)
         {
-            for (int i = 0; i < _inventoryView.SlotsCount; i++)
+            slotsView.Initialize(slotsModel.Slots.Count);
+
+            SubscribeSlots(slotsModel, slotsView);
+            DrawAllSlots(slotsModel, slotsView);
+
+            slotsModel.Slots.ObserveReplace()
+                .Subscribe(slot => DrawSlot(slotsView, slot.Index, slot.NewValue))
+                .AddTo(_disposables);
+        }
+
+        private void SubscribeSlots(IItemSlotsModel slotsModel, IItemSlotsView slotsView)
+        {
+            for (int i = 0; i < slotsView.SlotsCount; i++)
             {
-                InventorySlotView slot = _inventoryView.GetSlot(i);
+                InventorySlotView slot = slotsView.GetSlot(i);
 
                 if (slot == null)
                     continue;
 
-                slot.BeginDragged += OnSlotBeginDragged;
-                slot.Dragged += OnSlotDragged;
-                slot.EndDragged += OnSlotEndDragged;
-                slot.Dropped += OnSlotDropped;
+                SubscribeSlot(slot, slotsModel, slotsView).AddTo(_slotSubscriptions);
             }
         }
 
-        private void UnsubscribeSlots()
+        private IDisposable SubscribeSlot(InventorySlotView slot, IItemSlotsModel slotsModel, IItemSlotsView slotsView)
         {
-            for (int i = 0; i < _inventoryView.SlotsCount; i++)
+            void BeginDragged(int index, PointerEventData eventData) =>
+                OnSlotBeginDragged(slotsModel, slotsView, index, eventData);
+
+            void Dragged(PointerEventData eventData) =>
+                OnSlotDragged(eventData);
+
+            void EndDragged() =>
+                OnSlotEndDragged();
+
+            void Dropped(int index) =>
+                OnSlotDropped(slotsModel, index);
+
+            slot.BeginDragged += BeginDragged;
+            slot.Dragged += Dragged;
+            slot.EndDragged += EndDragged;
+            slot.Dropped += Dropped;
+
+            return Disposable.Create(() =>
             {
-                InventorySlotView slot = _inventoryView.GetSlot(i);
-
-                if (slot == null)
-                    continue;
-
-                slot.BeginDragged -= OnSlotBeginDragged;
-                slot.Dragged -= OnSlotDragged;
-                slot.EndDragged -= OnSlotEndDragged;
-                slot.Dropped -= OnSlotDropped;
-            }
+                slot.BeginDragged -= BeginDragged;
+                slot.Dragged -= Dragged;
+                slot.EndDragged -= EndDragged;
+                slot.Dropped -= Dropped;
+            });
         }
 
-        private void OnSlotBeginDragged(int index, PointerEventData eventData)
+        private void OnSlotBeginDragged(
+            IItemSlotsModel slotsModel,
+            IItemSlotsView slotsView,
+            int index,
+            PointerEventData eventData)
         {
-            InventorySlotData slotData = _inventorySlotsModel.Slots[index];
+            InventorySlotData slotData = slotsModel.GetSlot(index);
 
             if (slotData.IsEmpty || !_itemsConfig.TryGetItem(slotData.ItemId, out ItemData itemData))
                 return;
 
+            _draggedSlotsModel = slotsModel;
+            _draggedSlotsView = slotsView;
             _draggedSlotIndex = index;
             _dropSucceeded = false;
-            _inventoryView.ShowDrag(itemData.Icon, slotData.Count, index, eventData);
+            slotsView.ShowDrag(itemData.Icon, slotData.Count, slotsView.GetSlotSize(index), eventData);
+            slotsView.SetSlotVisualsVisible(index, false);
         }
 
-        private void OnSlotDragged(PointerEventData eventData) =>
-            _inventoryView.MoveDrag(eventData);
+        private void OnSlotDragged(PointerEventData eventData)
+        {
+            if (_draggedSlotIndex < 0)
+                return;
+
+            _draggedSlotsView.MoveDrag(eventData);
+        }
 
         private void OnSlotEndDragged()
         {
-            _inventoryView.HideDrag();
+            if (_draggedSlotIndex < 0)
+                return;
+
+            _draggedSlotsView.HideDrag();
 
             if (!_dropSucceeded && _draggedSlotIndex >= 0)
-                _inventoryView.SetSlotVisualsVisible(_draggedSlotIndex, true);
+                _draggedSlotsView.SetSlotVisualsVisible(_draggedSlotIndex, true);
 
+            _draggedSlotsModel = null;
+            _draggedSlotsView = null;
             _draggedSlotIndex = -1;
             _dropSucceeded = false;
         }
 
-        private void OnSlotDropped(int toIndex)
+        private void OnSlotDropped(IItemSlotsModel targetSlotsModel, int toIndex)
         {
-            if (_draggedSlotIndex < 0 || _draggedSlotIndex == toIndex)
+            if (_draggedSlotIndex < 0)
                 return;
 
-            _dropSucceeded = _inventorySlotsModel.TryMove(_draggedSlotIndex, toIndex);
+            _dropSucceeded = _itemSlotTransferService.TryMove(
+                _draggedSlotsModel,
+                _draggedSlotIndex,
+                targetSlotsModel,
+                toIndex);
         }
 
-        private void DrawAllSlots()
+        private void DrawAllSlots(IItemSlotsModel slotsModel, IItemSlotsView slotsView)
         {
-            for (int i = 0; i < _inventorySlotsModel.Slots.Count; i++)
-                DrawSlot(i, _inventorySlotsModel.Slots[i]);
+            for (int i = 0; i < slotsModel.Slots.Count; i++)
+                DrawSlot(slotsView, i, slotsModel.Slots[i]);
         }
 
-        private void DrawSlot(int index, InventorySlotData slotData)
+        private void DrawSlot(IItemSlotsView slotsView, int index, InventorySlotData slotData)
         {
             if (slotData.IsEmpty || !_itemsConfig.TryGetItem(slotData.ItemId, out ItemData itemData))
             {
-                _inventoryView.ClearSlot(index);
+                slotsView.ClearSlot(index);
                 return;
             }
 
-            _inventoryView.SetSlot(index, slotData, itemData);
+            slotsView.SetSlot(index, slotData, itemData);
         }
     }
 }

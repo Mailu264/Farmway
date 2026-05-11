@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using Farmway.Gameplay.UI.PopUp;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Farmway.Gameplay.Player
 {
-    public class InventoryView : PopUpView, IItemSlotsView
+    public class HotbarView : MonoBehaviour, IItemSlotsView
     {
         [SerializeField] private InventoryDragView _dragView;
         [SerializeField] private InventorySlotView _slotPrefab;
@@ -52,6 +51,12 @@ namespace Farmway.Gameplay.Player
                 slot.SetVisualsVisible(isVisible);
         }
 
+        public void SetSlotSelected(int index, bool isSelected)
+        {
+            if (TryGetSlot(index, out InventorySlotView slot))
+                slot.SetSelected(isSelected);
+        }
+
         public void ShowDrag(Sprite icon, int count, Vector2 size, PointerEventData eventData)
         {
             _dragView.Show(icon, count, size, eventData);
@@ -91,7 +96,7 @@ namespace Farmway.Gameplay.Player
                 return true;
             }
 
-            Debug.LogError($"Inventory slot view with index {index} not found");
+            Debug.LogError($"Hotbar slot view with index {index} not found");
             slot = null;
             return false;
         }

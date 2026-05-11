@@ -1,28 +1,78 @@
+using System;
+using UnityEngine;
+
 namespace Farmway.Gameplay.Player
 {
     public class PlayerInventoryService : PlayerService
     {
         private readonly IInventorySlotsModel _inventorySlotsModel;
+        private readonly IHotbarSlotsModel _hotbarSlotsModel;
+        private readonly IInventoryStorage _inventoryStorage;
 
-        public PlayerInventoryService(IInventorySlotsModel inventorySlotsModel)
+        public PlayerInventoryService(
+            IInventorySlotsModel inventorySlotsModel,
+            IHotbarSlotsModel hotbarSlotsModel,
+            IInventoryStorage inventoryStorage)
         {
             _inventorySlotsModel = inventorySlotsModel;
+            _hotbarSlotsModel = hotbarSlotsModel;
+            _inventoryStorage = inventoryStorage;
         }
 
         public override void OnInitialize()
         {
-            AddItem(ItemIdEnum.Item1, 10);
-            AddItem(ItemIdEnum.Item1, 7);
-            AddItem(ItemIdEnum.Item1, 4);
+            _inventorySlotsModel.Initialize(PlayerConfig.InventorySlotCount);
+            _hotbarSlotsModel.Initialize(PlayerConfig.HotbarSlotCount);
         }
 
-        public bool AddItem(ItemIdEnum itemId, int count) => 
-            _inventorySlotsModel.AddItem(itemId, count);
-        
-        public bool RemoveItem(ItemIdEnum itemId) =>
-            _inventorySlotsModel.RemoveItem(itemId);
+        public bool AddItem(ItemIdEnum itemId, int count)
+        {
+            if (!_inventorySlotsModel.AddItem(itemId, count))
+                return false;
 
-        public bool RemoveItem(ItemIdEnum itemId, int count) =>
-            _inventorySlotsModel.RemoveItem(itemId, count);
+            _inventoryStorage.AddItem(itemId, count);
+            return true;
+        }
+
+        public bool RemoveItem(ItemIdEnum itemId)
+        {
+            int total = _inventorySlotsModel.GetItemCount(itemId)
+                        + _hotbarSlotsModel.GetItemCount(itemId);
+
+            return total > 0 && RemoveItem(itemId, total);
+        }
+
+        public bool RemoveItem(ItemIdEnum itemId, int count)
+        {
+            if (count <= 0)
+            {
+                Debug.LogError("Count must be positive");
+                return false;
+            }
+
+            int inInventory = _inventorySlotsModel.GetItemCount(itemId);
+            int inHotbar = _hotbarSlotsModel.GetItemCount(itemId);
+
+            if (inInventory + inHotbar < count)
+            {
+                Debug.LogError($"Not enough {itemId} in inventory");
+                return false;
+            }
+
+            int remaining = count;
+
+            if (inInventory > 0)
+            {
+                int fromInventory = Math.Min(inInventory, remaining);
+                _inventorySlotsModel.RemoveItem(itemId, fromInventory);
+                remaining -= fromInventory;
+            }
+
+            if (remaining > 0)
+                _hotbarSlotsModel.RemoveItem(itemId, remaining);
+
+            _inventoryStorage.RemoveItem(itemId, count);
+            return true;
+        }
     }
 }

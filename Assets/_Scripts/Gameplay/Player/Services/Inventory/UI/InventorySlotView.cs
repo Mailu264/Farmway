@@ -10,6 +10,7 @@ namespace Farmway.Gameplay.Player
     {
         [SerializeField] private Image _iconPlacement;
         [SerializeField] private TextMeshProUGUI _count;
+        [SerializeField] private GameObject _selectedFrame;
 
         private bool _isEmpty = true;
 
@@ -44,6 +45,9 @@ namespace Farmway.Gameplay.Player
             _iconPlacement.enabled = isVisible && !_isEmpty;
             _count.gameObject.SetActive(isVisible && !_isEmpty && !string.IsNullOrEmpty(_count.text));
         }
+
+        public void SetSelected(bool isSelected) =>
+            _selectedFrame?.SetActive(isSelected);
 
         public void OnBeginDrag(PointerEventData eventData)
         {

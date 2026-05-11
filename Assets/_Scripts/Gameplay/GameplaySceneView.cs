@@ -7,5 +7,6 @@ namespace Farmway.Gameplay
     {
         [field: SerializeField] public CameraView CameraView { get; private set; }
         [field: SerializeField] public InventoryView InventoryView { get; private set; }
+        [field: SerializeField] public HotbarView HotbarView { get; private set; }
     }
 }
