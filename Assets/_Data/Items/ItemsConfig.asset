@@ -14,8 +14,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Farmway.Infrastructure.ItemsConfig
   _items:
   - ItemId: 1
-    ItemType: 1
-    Icon: {fileID: 7482667652216324306, guid: 4ef59323b5d8a474e895a284eb9aa1e6, type: 3}
-    Name: Test Plant
+    ItemType: 2
+    Icon: {fileID: -554010742415259762, guid: 435b5c37904ea95428741ec1546848e1, type: 3}
+    Name: Hoe
     MaxStackSize: 10
+    IsStackable: 0
+  - ItemId: 2
+    ItemType: 2
+    Icon: {fileID: 3435190667326688956, guid: 435b5c37904ea95428741ec1546848e1, type: 3}
+    Name: Watering can
+    MaxStackSize: 10
+    IsStackable: 0
+  - ItemId: 3
+    ItemType: 3
+    Icon: {fileID: -7774127061718034416, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Carrot seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 4
+    ItemType: 3
+    Icon: {fileID: 8198124045444385280, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Cauliflower seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 5
+    ItemType: 3
+    Icon: {fileID: 6865543084326714104, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Eggplant seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 6
+    ItemType: 3
+    Icon: {fileID: -3760858136471710070, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Cabbage seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 7
+    ItemType: 3
+    Icon: {fileID: -9219761879892987205, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Wheat seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 8
+    ItemType: 3
+    Icon: {fileID: 789232297, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Radish seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 9
+    ItemType: 3
+    Icon: {fileID: 675503663, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Starfruit seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 10
+    ItemType: 3
+    Icon: {fileID: -968457044, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Cucumber seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 11
+    ItemType: 3
+    Icon: {fileID: -2140383929992934401, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Pineapple seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 12
+    ItemType: 3
+    Icon: {fileID: -133028322, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Starradish seeds
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 13
+    ItemType: 1
+    Icon: {fileID: 5363938435661661072, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Carrot
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 14
+    ItemType: 1
+    Icon: {fileID: 8844569764648221448, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Cauliflower
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 15
+    ItemType: 1
+    Icon: {fileID: -3178948579177652577, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Eggplant
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 16
+    ItemType: 1
+    Icon: {fileID: -7071159708141278945, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Cabbage
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 17
+    ItemType: 1
+    Icon: {fileID: 3598695716248723854, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Wheat
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 18
+    ItemType: 1
+    Icon: {fileID: 1666762813, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Radish
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 19
+    ItemType: 1
+    Icon: {fileID: 674163531, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Starfruit
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 20
+    ItemType: 1
+    Icon: {fileID: -1201241994, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Cucumber
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 21
+    ItemType: 1
+    Icon: {fileID: 4919243342407439864, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Pineapple
+    MaxStackSize: 100
+    IsStackable: 1
+  - ItemId: 22
+    ItemType: 1
+    Icon: {fileID: 214710935, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+    Name: Starradish
+    MaxStackSize: 100
     IsStackable: 1
