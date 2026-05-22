@@ -7,10 +7,6 @@ namespace Farmway.Gameplay.Player
     public interface IInventoryStorage
     {
         IReadOnlyReactiveDictionary<ItemIdEnum, InventoryItemData> Items { get; }
-
-        bool AddItem(ItemIdEnum itemId, int count);
-        bool RemoveItem(ItemIdEnum itemId);
-        bool RemoveItem(ItemIdEnum itemId, int count);
     }
 
     public class InventoryStorage : IInventoryStorage

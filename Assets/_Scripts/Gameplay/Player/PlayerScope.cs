@@ -22,9 +22,9 @@ namespace Farmway.Gameplay.Player
             builder.Register<IPlayerServices, PlayerServices>(Lifetime.Scoped).AsImplementedInterfaces();
             builder.Register<PlayerMovementService>(Lifetime.Scoped).As<PlayerService>();
             builder.Register<PlayerCameraFollowService>(Lifetime.Scoped).As<PlayerService>();
-            builder.Register<PlayerInventoryService>(Lifetime.Scoped).AsSelf().As<PlayerService>();
+            builder.Register<PlayerInventoryService>(Lifetime.Scoped).As<IPlayerInventoryService>().As<PlayerService>();
             
-            builder.Register<IInventoryStorage, InventoryStorage>(Lifetime.Scoped);
+            builder.Register<InventoryStorage>(Lifetime.Scoped).As<IInventoryStorage>().AsSelf();
             builder.Register<IInventorySlotsModel, InventorySlotsModel>(Lifetime.Scoped);
             builder.Register<IHotbarSlotsModel, HotbarSlotsModel>(Lifetime.Scoped);
             builder.Register<IItemSlotTransferService, ItemSlotTransferService>(Lifetime.Scoped);

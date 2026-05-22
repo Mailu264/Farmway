@@ -4,17 +4,24 @@ using UnityEngine;
 
 namespace Farmway.Gameplay.Player
 {
-    public class PlayerInventoryService : PlayerService
+    public interface IPlayerInventoryService
+    {
+        bool AddItem(ItemIdEnum itemId, int count);
+        bool RemoveItem(ItemIdEnum itemId);
+        bool RemoveItem(ItemIdEnum itemId, int count);
+    }
+
+    public class PlayerInventoryService : PlayerService, IPlayerInventoryService
     {
         private readonly IInventorySlotsModel _inventorySlotsModel;
         private readonly IHotbarSlotsModel _hotbarSlotsModel;
-        private readonly IInventoryStorage _inventoryStorage;
+        private readonly InventoryStorage _inventoryStorage;
         private readonly IConfigProvider _configProvider;
 
         public PlayerInventoryService(
             IInventorySlotsModel inventorySlotsModel,
             IHotbarSlotsModel hotbarSlotsModel,
-            IInventoryStorage inventoryStorage,
+            InventoryStorage inventoryStorage,
             IConfigProvider configProvider)
         {
             _inventorySlotsModel = inventorySlotsModel;
@@ -27,10 +34,6 @@ namespace Farmway.Gameplay.Player
         {
             _inventorySlotsModel.Initialize(PlayerConfig.InventorySlotCount);
             _hotbarSlotsModel.Initialize(PlayerConfig.HotbarSlotCount);
-            foreach (var item in _configProvider.GetConfig<ItemsConfig>().Items )
-            {
-                AddItem(item.ItemId, 1);
-            }
         }
 
         public bool AddItem(ItemIdEnum itemId, int count)
