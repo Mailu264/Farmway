@@ -296,10 +296,10 @@ TextureImporter:
       name: _srw_character_1-8_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 419
-        width: 47
-        height: 53
+        x: 0
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: _srw_character_1-8_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 419
-        width: 47
-        height: 56
+        x: 48
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,10 +340,10 @@ TextureImporter:
       name: _srw_character_1-8_2
       rect:
         serializedVersion: 2
-        x: 98
-        y: 419
-        width: 478
-        height: 56
+        x: 96
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,10 +362,10 @@ TextureImporter:
       name: _srw_character_1-8_3
       rect:
         serializedVersion: 2
-        x: 5
-        y: 359
-        width: 44
-        height: 56
+        x: 144
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,10 +384,10 @@ TextureImporter:
       name: _srw_character_1-8_4
       rect:
         serializedVersion: 2
-        x: 53
-        y: 359
-        width: 44
-        height: 56
+        x: 192
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,10 +406,10 @@ TextureImporter:
       name: _srw_character_1-8_5
       rect:
         serializedVersion: 2
-        x: 101
-        y: 359
-        width: 44
-        height: 56
+        x: 240
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,10 +428,10 @@ TextureImporter:
       name: _srw_character_1-8_6
       rect:
         serializedVersion: 2
-        x: 149
-        y: 359
-        width: 44
-        height: 53
+        x: 288
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -450,10 +450,10 @@ TextureImporter:
       name: _srw_character_1-8_7
       rect:
         serializedVersion: 2
-        x: 197
-        y: 359
-        width: 44
-        height: 56
+        x: 336
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,10 +472,10 @@ TextureImporter:
       name: _srw_character_1-8_8
       rect:
         serializedVersion: 2
-        x: 245
-        y: 359
-        width: 44
-        height: 53
+        x: 384
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,10 +494,10 @@ TextureImporter:
       name: _srw_character_1-8_9
       rect:
         serializedVersion: 2
-        x: 293
-        y: 359
-        width: 44
-        height: 53
+        x: 432
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -516,10 +516,10 @@ TextureImporter:
       name: _srw_character_1-8_10
       rect:
         serializedVersion: 2
-        x: 341
-        y: 359
-        width: 44
-        height: 56
+        x: 480
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,10 +538,10 @@ TextureImporter:
       name: _srw_character_1-8_11
       rect:
         serializedVersion: 2
-        x: 389
-        y: 359
-        width: 44
-        height: 53
+        x: 528
+        y: 420
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,10 +560,10 @@ TextureImporter:
       name: _srw_character_1-8_12
       rect:
         serializedVersion: 2
-        x: 437
-        y: 359
-        width: 41
-        height: 53
+        x: 0
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -582,10 +582,10 @@ TextureImporter:
       name: _srw_character_1-8_13
       rect:
         serializedVersion: 2
-        x: 485
-        y: 359
-        width: 41
-        height: 56
+        x: 48
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -604,10 +604,10 @@ TextureImporter:
       name: _srw_character_1-8_14
       rect:
         serializedVersion: 2
-        x: 533
-        y: 359
-        width: 41
-        height: 53
+        x: 96
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -626,10 +626,10 @@ TextureImporter:
       name: _srw_character_1-8_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 299
-        width: 43
-        height: 56
+        x: 144
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -648,10 +648,10 @@ TextureImporter:
       name: _srw_character_1-8_16
       rect:
         serializedVersion: 2
-        x: 47
-        y: 299
-        width: 44
-        height: 56
+        x: 192
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -670,10 +670,10 @@ TextureImporter:
       name: _srw_character_1-8_17
       rect:
         serializedVersion: 2
-        x: 95
-        y: 299
-        width: 44
-        height: 56
+        x: 240
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -692,10 +692,10 @@ TextureImporter:
       name: _srw_character_1-8_18
       rect:
         serializedVersion: 2
-        x: 143
-        y: 299
-        width: 44
-        height: 53
+        x: 288
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -714,10 +714,10 @@ TextureImporter:
       name: _srw_character_1-8_19
       rect:
         serializedVersion: 2
-        x: 191
-        y: 299
-        width: 44
-        height: 56
+        x: 336
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -736,10 +736,10 @@ TextureImporter:
       name: _srw_character_1-8_20
       rect:
         serializedVersion: 2
-        x: 239
-        y: 299
-        width: 44
-        height: 53
+        x: 384
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -758,10 +758,10 @@ TextureImporter:
       name: _srw_character_1-8_21
       rect:
         serializedVersion: 2
-        x: 287
-        y: 299
-        width: 44
-        height: 53
+        x: 432
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -780,10 +780,10 @@ TextureImporter:
       name: _srw_character_1-8_22
       rect:
         serializedVersion: 2
-        x: 335
-        y: 299
-        width: 44
-        height: 56
+        x: 480
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -802,10 +802,10 @@ TextureImporter:
       name: _srw_character_1-8_23
       rect:
         serializedVersion: 2
-        x: 383
-        y: 299
-        width: 44
-        height: 53
+        x: 528
+        y: 360
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -824,10 +824,10 @@ TextureImporter:
       name: _srw_character_1-8_24
       rect:
         serializedVersion: 2
-        x: 434
-        y: 299
-        width: 41
-        height: 53
+        x: 0
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -846,10 +846,10 @@ TextureImporter:
       name: _srw_character_1-8_25
       rect:
         serializedVersion: 2
-        x: 482
-        y: 299
-        width: 41
-        height: 56
+        x: 48
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -868,10 +868,10 @@ TextureImporter:
       name: _srw_character_1-8_26
       rect:
         serializedVersion: 2
-        x: 530
-        y: 299
-        width: 41
-        height: 53
+        x: 96
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -890,10 +890,10 @@ TextureImporter:
       name: _srw_character_1-8_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 239
-        width: 46
-        height: 53
+        x: 144
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -912,10 +912,10 @@ TextureImporter:
       name: _srw_character_1-8_28
       rect:
         serializedVersion: 2
-        x: 47
-        y: 239
-        width: 47
-        height: 56
+        x: 192
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -934,10 +934,10 @@ TextureImporter:
       name: _srw_character_1-8_29
       rect:
         serializedVersion: 2
-        x: 95
-        y: 239
-        width: 47
-        height: 53
+        x: 240
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -956,10 +956,10 @@ TextureImporter:
       name: _srw_character_1-8_30
       rect:
         serializedVersion: 2
-        x: 143
-        y: 239
-        width: 290
-        height: 56
+        x: 288
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -978,10 +978,10 @@ TextureImporter:
       name: _srw_character_1-8_31
       rect:
         serializedVersion: 2
-        x: 431
-        y: 179
-        width: 145
-        height: 116
+        x: 336
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1000,10 +1000,10 @@ TextureImporter:
       name: _srw_character_1-8_32
       rect:
         serializedVersion: 2
-        x: 48
-        y: 179
+        x: 384
+        y: 300
         width: 48
-        height: 56
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1022,10 +1022,10 @@ TextureImporter:
       name: _srw_character_1-8_33
       rect:
         serializedVersion: 2
-        x: 287
-        y: 179
-        width: 146
-        height: 56
+        x: 432
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1044,10 +1044,10 @@ TextureImporter:
       name: _srw_character_1-8_34
       rect:
         serializedVersion: 2
-        x: 5
-        y: 119
-        width: 44
-        height: 53
+        x: 480
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1066,10 +1066,10 @@ TextureImporter:
       name: _srw_character_1-8_35
       rect:
         serializedVersion: 2
-        x: 53
-        y: 119
-        width: 44
-        height: 56
+        x: 528
+        y: 300
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1088,10 +1088,10 @@ TextureImporter:
       name: _srw_character_1-8_36
       rect:
         serializedVersion: 2
-        x: 101
-        y: 119
-        width: 44
-        height: 53
+        x: 0
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1110,10 +1110,10 @@ TextureImporter:
       name: _srw_character_1-8_37
       rect:
         serializedVersion: 2
-        x: 149
-        y: 119
-        width: 44
-        height: 53
+        x: 48
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1132,10 +1132,10 @@ TextureImporter:
       name: _srw_character_1-8_38
       rect:
         serializedVersion: 2
-        x: 197
-        y: 119
-        width: 44
-        height: 56
+        x: 96
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1154,10 +1154,10 @@ TextureImporter:
       name: _srw_character_1-8_39
       rect:
         serializedVersion: 2
-        x: 245
-        y: 119
-        width: 44
-        height: 53
+        x: 144
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1176,10 +1176,10 @@ TextureImporter:
       name: _srw_character_1-8_40
       rect:
         serializedVersion: 2
-        x: 290
-        y: 119
-        width: 47
-        height: 53
+        x: 192
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1198,10 +1198,10 @@ TextureImporter:
       name: _srw_character_1-8_41
       rect:
         serializedVersion: 2
-        x: 338
-        y: 119
-        width: 47
-        height: 56
+        x: 240
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1220,10 +1220,10 @@ TextureImporter:
       name: _srw_character_1-8_42
       rect:
         serializedVersion: 2
-        x: 386
-        y: 119
-        width: 47
-        height: 53
+        x: 288
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1242,10 +1242,10 @@ TextureImporter:
       name: _srw_character_1-8_43
       rect:
         serializedVersion: 2
-        x: 437
-        y: 119
-        width: 44
-        height: 56
+        x: 336
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1264,10 +1264,10 @@ TextureImporter:
       name: _srw_character_1-8_44
       rect:
         serializedVersion: 2
-        x: 485
-        y: 119
-        width: 44
-        height: 59
+        x: 384
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1286,10 +1286,10 @@ TextureImporter:
       name: _srw_character_1-8_45
       rect:
         serializedVersion: 2
-        x: 533
-        y: 119
-        width: 43
-        height: 56
+        x: 432
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1308,10 +1308,10 @@ TextureImporter:
       name: _srw_character_1-8_46
       rect:
         serializedVersion: 2
-        x: 0
-        y: 59
-        width: 43
-        height: 53
+        x: 480
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1330,10 +1330,10 @@ TextureImporter:
       name: _srw_character_1-8_47
       rect:
         serializedVersion: 2
-        x: 47
-        y: 59
-        width: 44
-        height: 56
+        x: 528
+        y: 240
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1352,10 +1352,10 @@ TextureImporter:
       name: _srw_character_1-8_48
       rect:
         serializedVersion: 2
-        x: 95
-        y: 59
-        width: 44
-        height: 53
+        x: 0
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1374,10 +1374,10 @@ TextureImporter:
       name: _srw_character_1-8_49
       rect:
         serializedVersion: 2
-        x: 143
-        y: 59
-        width: 44
-        height: 53
+        x: 48
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1396,10 +1396,10 @@ TextureImporter:
       name: _srw_character_1-8_50
       rect:
         serializedVersion: 2
-        x: 191
-        y: 59
-        width: 44
-        height: 56
+        x: 96
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1418,10 +1418,10 @@ TextureImporter:
       name: _srw_character_1-8_51
       rect:
         serializedVersion: 2
-        x: 239
-        y: 59
-        width: 44
-        height: 53
+        x: 144
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1440,10 +1440,10 @@ TextureImporter:
       name: _srw_character_1-8_52
       rect:
         serializedVersion: 2
-        x: 287
-        y: 59
-        width: 47
-        height: 53
+        x: 192
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1462,10 +1462,10 @@ TextureImporter:
       name: _srw_character_1-8_53
       rect:
         serializedVersion: 2
-        x: 335
-        y: 59
-        width: 47
-        height: 56
+        x: 240
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1484,10 +1484,10 @@ TextureImporter:
       name: _srw_character_1-8_54
       rect:
         serializedVersion: 2
-        x: 383
-        y: 59
-        width: 47
-        height: 53
+        x: 288
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1506,10 +1506,10 @@ TextureImporter:
       name: _srw_character_1-8_55
       rect:
         serializedVersion: 2
-        x: 431
-        y: 59
-        width: 44
-        height: 56
+        x: 336
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1528,10 +1528,10 @@ TextureImporter:
       name: _srw_character_1-8_56
       rect:
         serializedVersion: 2
-        x: 479
-        y: 59
-        width: 44
-        height: 59
+        x: 384
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1550,10 +1550,10 @@ TextureImporter:
       name: _srw_character_1-8_57
       rect:
         serializedVersion: 2
-        x: 527
-        y: 59
-        width: 44
-        height: 56
+        x: 432
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1572,10 +1572,10 @@ TextureImporter:
       name: _srw_character_1-8_58
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 289
-        height: 55
+        x: 480
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1594,10 +1594,10 @@ TextureImporter:
       name: _srw_character_1-8_59
       rect:
         serializedVersion: 2
-        x: 290
-        y: 0
-        width: 140
-        height: 55
+        x: 528
+        y: 180
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1616,10 +1616,10 @@ TextureImporter:
       name: _srw_character_1-8_60
       rect:
         serializedVersion: 2
-        x: 431
-        y: 0
-        width: 145
-        height: 58
+        x: 0
+        y: 120
+        width: 48
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1630,6 +1630,776 @@ TextureImporter:
       bones: []
       spriteID: eed54593d75330440800000000000000
       internalID: 4900819631458246126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_61
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2266273f9f2b4262ad09f099ae3d640
+      internalID: -488792317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_62
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7337dbacc9b848ba8cbf2bec74c30c4
+      internalID: -1612367616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_63
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df08e7337395b4d7e90a9e8460c658fa
+      internalID: -899601554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_64
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff651ec57a57b4d3eb642961136a7ab7
+      internalID: 1745953027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_65
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a71f4d20c1dc46b4994ca833f675962
+      internalID: 801407127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_66
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1668519cd2b4b42c2a5c6641ac3e3b00
+      internalID: -1320786256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_67
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2dba9d181d3d41b289134ebb76a1ced
+      internalID: -1009939614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_68
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a324b7bcb164c2189f8f2f67a7f512
+      internalID: -355525104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_69
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63965410a12ac4114968f57b21917c38
+      internalID: 794291922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_70
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae48a61873f541088cbab787558f4b8
+      internalID: -177174425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_71
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 120
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a653b2fe7b7f64261828932ba1610e7b
+      internalID: 1173948042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c6129c4b8f042c8bcefd1bc149ce2c
+      internalID: -1943207086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_73
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34e37b2448174a479c15fb3d7cf76f7
+      internalID: 35326353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_74
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d27c528ccfb42709328936e53439c5
+      internalID: -920260649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_75
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffcc1498b31ab48ef858cde716068355
+      internalID: 685978650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_76
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6826841e3fc24065b672bbb0e97c650
+      internalID: 1214633320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_77
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b0786dafc174a3f93714936dcf5bf2
+      internalID: 1267143472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_78
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5216dcd3dd99f4e7293a209c2aa4ca05
+      internalID: -1310075612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_79
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 924dd9b67f35e4d67b465a0eb15d3b4a
+      internalID: -1502344334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_80
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b46eef4411e416ea11efda97c9c434
+      internalID: 1725921726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_81
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013979b2201324394ab2b2917003b99b
+      internalID: 2009818545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_82
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded12be832b104510925ef02dd9fbeb3
+      internalID: 547885143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_83
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 60
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332b309fe8aa5437ba3e82c25e5b0b46
+      internalID: 544758259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5fb54542e6e4125b757044ddae2250
+      internalID: -969774588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_85
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23603256e42b741c78421b8a0e2eee66
+      internalID: -2029981513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_86
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c60890f52624f9ba00b30e3b12ca20
+      internalID: -714960261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_87
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f674177a16f0149a0a61b7627761c958
+      internalID: 1323838917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_88
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba31d170fc94f41bf8f2e0d2e0c8c1ba
+      internalID: -1534416467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_89
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5bbb65a5d6e42cb8cb0197fc757af4
+      internalID: 1521267715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_90
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00db07780f389433c9cfaaf97cc983c1
+      internalID: 1797775483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_91
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead829e23c87b4954aec4ecd43970248
+      internalID: -1195003131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_92
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d352d01048e7443b292f6b0c8dbccc65
+      internalID: -386400457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_93
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867beb7e3ddcb4423994b2377e84fbd2
+      internalID: 385960123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_94
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43617455bb7944b329321759b014cb4c
+      internalID: 1588168454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _srw_character_1-8_95
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 48
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0bc0ec957664d3e9a9f6fa066ec80a
+      internalID: 528700819
       vertices: []
       indices: 
       edges: []
@@ -1646,7 +2416,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":12.0,"y":8.0},"gridSpriteSize":{"x":48.0,"y":60.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       _srw_character_1-8_0: -7268794329347034341
       _srw_character_1-8_1: 1166592235736649239
@@ -1706,9 +2478,44 @@ TextureImporter:
       _srw_character_1-8_59: 3763952431831724342
       _srw_character_1-8_6: 8626492844809886561
       _srw_character_1-8_60: 4900819631458246126
+      _srw_character_1-8_61: -488792317
+      _srw_character_1-8_62: -1612367616
+      _srw_character_1-8_63: -899601554
+      _srw_character_1-8_64: 1745953027
+      _srw_character_1-8_65: 801407127
+      _srw_character_1-8_66: -1320786256
+      _srw_character_1-8_67: -1009939614
+      _srw_character_1-8_68: -355525104
+      _srw_character_1-8_69: 794291922
       _srw_character_1-8_7: -7508238478006572317
+      _srw_character_1-8_70: -177174425
+      _srw_character_1-8_71: 1173948042
+      _srw_character_1-8_72: -1943207086
+      _srw_character_1-8_73: 35326353
+      _srw_character_1-8_74: -920260649
+      _srw_character_1-8_75: 685978650
+      _srw_character_1-8_76: 1214633320
+      _srw_character_1-8_77: 1267143472
+      _srw_character_1-8_78: -1310075612
+      _srw_character_1-8_79: -1502344334
       _srw_character_1-8_8: -1570214829390955498
+      _srw_character_1-8_80: 1725921726
+      _srw_character_1-8_81: 2009818545
+      _srw_character_1-8_82: 547885143
+      _srw_character_1-8_83: 544758259
+      _srw_character_1-8_84: -969774588
+      _srw_character_1-8_85: -2029981513
+      _srw_character_1-8_86: -714960261
+      _srw_character_1-8_87: 1323838917
+      _srw_character_1-8_88: -1534416467
+      _srw_character_1-8_89: 1521267715
       _srw_character_1-8_9: 6315517763812066865
+      _srw_character_1-8_90: 1797775483
+      _srw_character_1-8_91: -1195003131
+      _srw_character_1-8_92: -386400457
+      _srw_character_1-8_93: 385960123
+      _srw_character_1-8_94: 1588168454
+      _srw_character_1-8_95: 528700819
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

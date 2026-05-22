@@ -19,5 +19,5 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <Speed>k__BackingField: 10
-  <InventorySlotCount>k__BackingField: 20
+  <InventorySlotCount>k__BackingField: 24
   <HotbarSlotCount>k__BackingField: 9

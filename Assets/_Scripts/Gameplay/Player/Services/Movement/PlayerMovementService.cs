@@ -15,10 +15,7 @@ namespace Farmway.Gameplay.Player
         public override void OnFixedUpdate() => 
             Move(_inputService.MovementVector);
 
-        private void Move(Vector2 movementVector)
-        {
+        private void Move(Vector2 movementVector) => 
             PlayerView.Rigidbody2D.linearVelocity = movementVector * PlayerConfig.Speed;
-            PlayerView.SpriteRenderer.flipX = !(movementVector.x > 0);
-        }
     }
 }
