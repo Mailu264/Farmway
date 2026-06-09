@@ -49,6 +49,7 @@ namespace Farmway.Gameplay.Player
         public ItemIdEnum ItemId;
         public ItemTypesEnum ItemType;
         public Sprite Icon;
+        public Sprite InHandSprite;
         public string Name;
         public int MaxStackSize;
         public bool IsStackable;
