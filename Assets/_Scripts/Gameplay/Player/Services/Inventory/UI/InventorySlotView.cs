@@ -22,8 +22,24 @@ namespace Farmway.Gameplay.Player
         public event Action EndDragged;
         public event Action<int> Dropped;
 
-        public void Initialize(int index) =>
+        public void Initialize(int index)
+        {
             Index = index;
+            StyleCount();
+        }
+
+        // Жирный белый счётчик — читается на любой иконке.
+        // Outline через материал не трогаем: на неинициализированном TMP это кидает NRE.
+        private void StyleCount()
+        {
+            if (_count == null)
+                return;
+
+            _count.fontSize = 20;
+            _count.fontStyle = TMPro.FontStyles.Bold;
+            _count.color = Color.white;
+            _count.alignment = TMPro.TextAlignmentOptions.BottomRight;
+        }
 
         public void SetItem(Sprite icon, int count)
         {

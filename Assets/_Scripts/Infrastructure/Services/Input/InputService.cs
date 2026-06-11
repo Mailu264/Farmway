@@ -17,6 +17,8 @@ namespace Farmway.Infrastructure
         private readonly ReactiveProperty<bool> _isInventoryOpened = new();
         private readonly Subject<int> _hotbarSlotSelected = new();
         private readonly Subject<int> _hotbarScrolled = new();
+        private readonly Subject<Vector2> _interact = new();
+        private readonly Subject<Unit> _usePressed = new();
 
         public Vector2 MovementVector { get; private set; }
         public bool IsSprint { get; private set; }
@@ -24,6 +26,8 @@ namespace Farmway.Infrastructure
         public IObservable<bool> OnInventoryOpened => _isInventoryOpened;
         public IObservable<int> OnHotbarSlotSelected => _hotbarSlotSelected;
         public IObservable<int> OnHotbarScrolled => _hotbarScrolled;
+        public IObservable<Vector2> OnInteract => _interact;
+        public IObservable<Unit> OnUsePressed => _usePressed;
 
         public InputService()
         {
@@ -38,7 +42,7 @@ namespace Farmway.Infrastructure
 
             _input.UI.OpenInventory.performed += OnOpenInventoryPerformed;
             _input.UI.OpenInventory.canceled += OnOpenInventoryCanceled;
-            
+
             RegisterHotbarActions();
         }
 
@@ -49,6 +53,12 @@ namespace Farmway.Infrastructure
             float scroll = _input.UI.ScrollWheel.ReadValue<Vector2>().y;
             if (scroll > 0f) _hotbarScrolled.OnNext(1);
             else if (scroll < 0f) _hotbarScrolled.OnNext(-1);
+
+            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                _interact.OnNext(Mouse.current.position.ReadValue());
+
+            if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+                _usePressed.OnNext(Unit.Default);
         }
 
         public void Dispose()
@@ -69,6 +79,8 @@ namespace Farmway.Infrastructure
             _isInventoryOpened.Dispose();
             _hotbarSlotSelected.Dispose();
             _hotbarScrolled.Dispose();
+            _interact.Dispose();
+            _usePressed.Dispose();
             _input?.Dispose();
         }
 
@@ -105,5 +117,7 @@ namespace Farmway.Infrastructure
         IObservable<bool> OnInventoryOpened { get; }
         IObservable<int> OnHotbarSlotSelected { get; }
         IObservable<int> OnHotbarScrolled { get; }
+        IObservable<Vector2> OnInteract { get; }
+        IObservable<Unit> OnUsePressed { get; }
     }
 }

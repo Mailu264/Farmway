@@ -19,6 +19,9 @@ namespace Farmway.Gameplay.Player
 
         public override void OnUpdate()
         {
+            if (PlayerView.Animator == null)
+                return;
+
             var move = _inputService.MovementVector;
 
             if (move != Vector2.zero)

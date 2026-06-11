@@ -1,4 +1,3 @@
-using Farmway.Infrastructure;
 using UnityEngine;
 
 namespace Farmway.Gameplay.Player
@@ -10,13 +9,6 @@ namespace Farmway.Gameplay.Player
 
     public class ItemSlotTransferService : IItemSlotTransferService
     {
-        private readonly ItemsConfig _itemsConfig;
-
-        public ItemSlotTransferService(IConfigProvider configProvider)
-        {
-            _itemsConfig = configProvider.GetConfig<ItemsConfig>();
-        }
-
         public bool TryMove(IItemSlotsModel source, int sourceIndex, IItemSlotsModel target, int targetIndex)
         {
             if (!source.IsValidIndex(sourceIndex) || !target.IsValidIndex(targetIndex))
@@ -46,18 +38,15 @@ namespace Farmway.Gameplay.Player
             return true;
         }
 
-        private bool CanMerge(InventorySlotData from, InventorySlotData to)
+        private static bool CanMerge(InventorySlotData from, InventorySlotData to)
         {
-            if (from.ItemId != to.ItemId)
+            if (from.Item != to.Item)
                 return false;
 
-            if (!_itemsConfig.TryGetItem(from.ItemId, out ItemData itemData))
-                return false;
-
-            return itemData.IsStackable && to.Count < Mathf.Max(1, itemData.MaxStackSize);
+            return from.Item.IsStackable && to.Count < Mathf.Max(1, from.Item.MaxStackSize);
         }
 
-        private bool Merge(
+        private static bool Merge(
             IItemSlotsModel source,
             int sourceIndex,
             IItemSlotsModel target,
@@ -65,16 +54,13 @@ namespace Farmway.Gameplay.Player
             InventorySlotData from,
             InventorySlotData to)
         {
-            if (!_itemsConfig.TryGetItem(from.ItemId, out ItemData itemData))
-                return false;
-
-            int freeSpace = Mathf.Max(1, itemData.MaxStackSize) - to.Count;
+            int freeSpace = Mathf.Max(1, from.Item.MaxStackSize) - to.Count;
             int movedCount = Mathf.Min(freeSpace, from.Count);
             int remainingCount = from.Count - movedCount;
 
-            target.SetSlot(targetIndex, new InventorySlotData(to.ItemId, to.Count + movedCount));
+            target.SetSlot(targetIndex, new InventorySlotData(to.Item, to.Count + movedCount));
             source.SetSlot(sourceIndex, remainingCount > 0
-                ? new InventorySlotData(from.ItemId, remainingCount)
+                ? new InventorySlotData(from.Item, remainingCount)
                 : InventorySlotData.Empty);
 
             return true;

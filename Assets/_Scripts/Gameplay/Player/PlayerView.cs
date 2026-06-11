@@ -1,3 +1,4 @@
+using Farmway.Gameplay.Player.Services.ItemsService;
 using UnityEngine;
 
 namespace Farmway.Gameplay.Player
@@ -7,5 +8,6 @@ namespace Farmway.Gameplay.Player
         [field: SerializeField] public SpriteRenderer SpriteRenderer { get; private set; }
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }
+        [field: SerializeField] public PlayerItemSelectionView SpawnItemPoint { get; private set; }
     }
 }

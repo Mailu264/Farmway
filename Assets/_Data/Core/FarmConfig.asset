@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb650208e75c4bbcbb187573db3df49, type: 3}
+  m_Name: FarmConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Farmway.Gameplay.Farm.FarmConfig
+  <InteractionRadius>k__BackingField: 5
+  <HoeItem>k__BackingField: {fileID: 11400000, guid: fda160fff4e54a78a0bdbf0e3139c285, type: 2}
+  <WateringCanItem>k__BackingField: {fileID: 11400000, guid: 496f935461bc46e289006d80ef515dc9, type: 2}
+  <ScytheItem>k__BackingField: {fileID: 11400000, guid: 2ffad749686e4d0287e8b780f90c1b0e, type: 2}
+  <TilledSprite>k__BackingField: {fileID: 21300000, guid: 40eab1c1013a41deaecd6e5203ae1e26, type: 3}
+  <WateredSprite>k__BackingField: {fileID: 21300000, guid: 4c64b98ab8ee43ccb3921dd79e4f0b04, type: 3}
+  <HouseSprite>k__BackingField: {fileID: -7883124013092532653, guid: 1e9240c0633c003408f89cf8f286bbf8, type: 3}
+  <TraderSprite>k__BackingField: {fileID: -3064577761922822274, guid: 88b1b631303433c40992b4d92b554a35, type: 3}
+  <HousePosition>k__BackingField: {x: 5, y: 3}
+  <SleepRadius>k__BackingField: 2.5
+  <TraderPosition>k__BackingField: {x: -5, y: 2}
+  <TraderRadius>k__BackingField: 2.5
+  <MapMin>k__BackingField: {x: -12, y: -8}
+  <MapMax>k__BackingField: {x: 12, y: 8}
+  <FatiguePerAction>k__BackingField: 0.03
+  <StartMoney>k__BackingField: 50
+  <ShopItems>k__BackingField:
+  - {fileID: 11400000, guid: 1307bbd24d4349c089f06dfe77ef4943, type: 2}
+  - {fileID: 11400000, guid: 957dec7f9cad454ab0743f334b85b86c, type: 2}
+  - {fileID: 11400000, guid: 739707bd4cf84ab9846874486cd4867f, type: 2}
+  - {fileID: 11400000, guid: ae61fc5e1ed44070a5c300b3076eac68, type: 2}
+  <StartingItems>k__BackingField:
+  - Item: {fileID: 11400000, guid: fda160fff4e54a78a0bdbf0e3139c285, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: 496f935461bc46e289006d80ef515dc9, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: 2ffad749686e4d0287e8b780f90c1b0e, type: 2}
+    Count: 1
+  - Item: {fileID: 11400000, guid: 1307bbd24d4349c089f06dfe77ef4943, type: 2}
+    Count: 5
+  - Item: {fileID: 11400000, guid: 957dec7f9cad454ab0743f334b85b86c, type: 2}
+    Count: 3

@@ -1,5 +1,4 @@
 using System;
-using Farmway.Infrastructure;
 using UniRx;
 using UnityEngine.EventSystems;
 using VContainer.Unity;
@@ -11,7 +10,6 @@ namespace Farmway.Gameplay.Player
         private readonly IInventorySlotsModel _inventorySlotsModel;
         private readonly IHotbarSlotsModel _hotbarSlotsModel;
         private readonly IItemSlotTransferService _itemSlotTransferService;
-        private readonly ItemsConfig _itemsConfig;
         private readonly InventoryView _inventoryView;
         private readonly HotbarView _hotbarView;
         private readonly CompositeDisposable _disposables = new();
@@ -26,13 +24,11 @@ namespace Farmway.Gameplay.Player
             IInventorySlotsModel inventorySlotsModel,
             IHotbarSlotsModel hotbarSlotsModel,
             IItemSlotTransferService itemSlotTransferService,
-            IConfigProvider configProvider,
             GameplaySceneView gameplaySceneView)
         {
             _inventorySlotsModel = inventorySlotsModel;
             _hotbarSlotsModel = hotbarSlotsModel;
             _itemSlotTransferService = itemSlotTransferService;
-            _itemsConfig = configProvider.GetConfig<ItemsConfig>();
             _inventoryView = gameplaySceneView.InventoryView;
             _hotbarView = gameplaySceneView.HotbarView;
         }
@@ -110,14 +106,14 @@ namespace Farmway.Gameplay.Player
         {
             InventorySlotData slotData = slotsModel.GetSlot(index);
 
-            if (slotData.IsEmpty || !_itemsConfig.TryGetItem(slotData.ItemId, out ItemData itemData))
+            if (slotData.IsEmpty)
                 return;
 
             _draggedSlotsModel = slotsModel;
             _draggedSlotsView = slotsView;
             _draggedSlotIndex = index;
             _dropSucceeded = false;
-            slotsView.ShowDrag(itemData.Icon, slotData.Count, slotsView.GetSlotSize(index), eventData);
+            slotsView.ShowDrag(slotData.Item.Icon, slotData.Count, slotsView.GetSlotSize(index), eventData);
             slotsView.SetSlotVisualsVisible(index, false);
         }
 
@@ -165,13 +161,13 @@ namespace Farmway.Gameplay.Player
 
         private void DrawSlot(IItemSlotsView slotsView, int index, InventorySlotData slotData)
         {
-            if (slotData.IsEmpty || !_itemsConfig.TryGetItem(slotData.ItemId, out ItemData itemData))
+            if (slotData.IsEmpty)
             {
                 slotsView.ClearSlot(index);
                 return;
             }
 
-            slotsView.SetSlot(index, slotData, itemData);
+            slotsView.SetSlot(index, slotData);
         }
     }
 }

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d789a7a55e7457c9bafae257449593, type: 3}
+  m_Name: PlantsConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Farmway.Gameplay.Farm.PlantsConfig
+  _plants:
+  - PlantType: 1
+    SeedItem: {fileID: 11400000, guid: 1307bbd24d4349c089f06dfe77ef4943, type: 2}
+    HarvestItem: {fileID: 11400000, guid: ca4a984e181844759e6da30872c27b13, type: 2}
+    HarvestCount: 2
+    Stages:
+    - Sprite: {fileID: 3087514152443709946, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -5303074482241403744, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -7144939942012141354, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+  - PlantType: 2
+    SeedItem: {fileID: 11400000, guid: 957dec7f9cad454ab0743f334b85b86c, type: 2}
+    HarvestItem: {fileID: 11400000, guid: 9897032ae319417da4952465cedcbbde, type: 2}
+    HarvestCount: 3
+    Stages:
+    - Sprite: {fileID: 4119805904255188223, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: 779046655663545624, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: 8859101358196674694, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -4299238847165222154, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+  - PlantType: 3
+    SeedItem: {fileID: 11400000, guid: 739707bd4cf84ab9846874486cd4867f, type: 2}
+    HarvestItem: {fileID: 11400000, guid: 08ed486cdfdc4c2a9eea0694c35f171a, type: 2}
+    HarvestCount: 1
+    Stages:
+    - Sprite: {fileID: -6405151323998063163, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -1301295505227026534, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -3789835460045379964, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -2381489172831826401, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+  - PlantType: 4
+    SeedItem: {fileID: 11400000, guid: ae61fc5e1ed44070a5c300b3076eac68, type: 2}
+    HarvestItem: {fileID: 11400000, guid: 98a4794f0ef646a3a54129000c0d7544, type: 2}
+    HarvestCount: 1
+    Stages:
+    - Sprite: {fileID: -2684343273860893873, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: 908988079453269994, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -8840440949987904535, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}
+    - Sprite: {fileID: -8373987676481377797, guid: 3f8ec4b5e4669634aa72ded7ddb997c6, type: 3}

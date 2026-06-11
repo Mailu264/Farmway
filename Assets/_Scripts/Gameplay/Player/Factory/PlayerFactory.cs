@@ -1,5 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Farmway.Gameplay.Farm;
 using Farmway.Infrastructure;
 using UnityEngine;
 
@@ -27,6 +28,18 @@ namespace Farmway.Gameplay.Player
             var prefab = await _assetProvider.LoadAssetAsync<PlayerView>(config.Prefab, ct);
             
             var playerView = Object.Instantiate(prefab, spawnPosition, Quaternion.identity);
+
+            if (playerView.SpriteRenderer != null)
+                playerView.SpriteRenderer.sortingOrder = FarmSortingOrder.Player;
+
+            // Без коллайдера игрок проходит сквозь стены и дом
+            if (playerView.GetComponent<Collider2D>() == null)
+            {
+                var collider = playerView.gameObject.AddComponent<BoxCollider2D>();
+                collider.size = new Vector2(0.7f, 0.6f);
+                collider.offset = new Vector2(0f, -0.5f);
+            }
+
             return playerView;
         }
     }

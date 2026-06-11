@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Farmway.Gameplay.Services.Configs
 {
-    [CreateAssetMenu(fileName = "ItemsConfig", menuName = "Configs/Gameplay/GameConfig")]
+    [CreateAssetMenu(fileName = "TimeConfig", menuName = "Configs/Gameplay/TimeConfig")]
     public class TimeConfig : ScriptableObject
     {
         [field: SerializeField] public float DayTime { get; set; }

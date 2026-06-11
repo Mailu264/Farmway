@@ -9,7 +9,7 @@ namespace Farmway.Gameplay.Player
 
         void Initialize(int slotCount);
         InventorySlotView GetSlot(int index);
-        void SetSlot(int index, InventorySlotData slotData, ItemData itemData);
+        void SetSlot(int index, InventorySlotData slotData);
         void ClearSlot(int index);
         void SetSlotVisualsVisible(int index, bool isVisible);
         Vector2 GetSlotSize(int index);

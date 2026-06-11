@@ -41,17 +41,27 @@ namespace Farmway.Gameplay.Player
             UpdateCurrentItem();
         }
 
-        public int GetItemCount(ItemIdEnum itemId) =>
-            _slots.GetItemCount(itemId);
+        public int GetItemCount(ItemDefinition item) =>
+            _slots.GetItemCount(item);
 
-        public bool RemoveItem(ItemIdEnum itemId, int count)
+        public bool RemoveItem(ItemDefinition item, int count)
         {
-            bool removed = _slots.RemoveItem(itemId, count);
+            bool removed = _slots.RemoveItem(item, count);
 
             if (removed)
                 UpdateCurrentItem();
 
             return removed;
+        }
+
+        public int StackExisting(ItemDefinition item, int count)
+        {
+            int remaining = _slots.StackExisting(item, count);
+
+            if (remaining != count)
+                UpdateCurrentItem();
+
+            return remaining;
         }
 
         public void SelectSlot(int index)

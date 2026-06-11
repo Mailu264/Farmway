@@ -26,7 +26,7 @@ namespace Farmway.Gameplay.Player
         public InventorySlotView GetSlot(int index) =>
             TryGetSlot(index, out InventorySlotView slot) ? slot : null;
 
-        public void SetSlot(int index, InventorySlotData slotData, ItemData itemData)
+        public void SetSlot(int index, InventorySlotData slotData)
         {
             if (!TryGetSlot(index, out InventorySlotView slot))
                 return;
@@ -37,7 +37,7 @@ namespace Farmway.Gameplay.Player
                 return;
             }
 
-            slot.SetItem(itemData.Icon, slotData.Count);
+            slot.SetItem(slotData.Item.Icon, slotData.Count);
         }
 
         public void ClearSlot(int index)

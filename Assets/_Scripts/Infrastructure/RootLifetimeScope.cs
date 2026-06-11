@@ -11,6 +11,7 @@ namespace Farmway.Infrastructure
             builder.Register<IConfigProvider, ConfigProvider>(Lifetime.Singleton);
             builder.Register<IObjectPool, ObjectPool>(Lifetime.Singleton);
             builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
+            builder.Register<ISaveService, SaveService>(Lifetime.Singleton);
             builder.Register<InputService>(Lifetime.Singleton).AsImplementedInterfaces();
 
             builder.RegisterEntryPoint<Bootstrapper>();

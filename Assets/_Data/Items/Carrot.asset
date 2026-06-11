@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd988ef4900845b1bc70d69f75514a46, type: 3}
+  m_Name: Carrot
+  m_EditorClassIdentifier: Assembly-CSharp::Farmway.Gameplay.Player.ItemDefinition
+  <Name>k__BackingField: Морковь
+  <Icon>k__BackingField: {fileID: 5363938435661661072, guid: 94680ce6b4ed8cc4bb28f62bf0bc50f3, type: 3}
+  <Type>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  <IsStackable>k__BackingField: 1
+  <BuyPrice>k__BackingField: 0
+  <SellPrice>k__BackingField: 40

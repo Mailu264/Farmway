@@ -6,16 +6,16 @@ namespace Farmway.Gameplay.Player
 {
     public interface IInventoryStorage
     {
-        IReadOnlyReactiveDictionary<ItemIdEnum, InventoryItemData> Items { get; }
+        IReadOnlyReactiveDictionary<ItemDefinition, InventoryItemData> Items { get; }
     }
 
     public class InventoryStorage : IInventoryStorage
     {
-        private readonly ReactiveDictionary<ItemIdEnum, InventoryItemData> _items = new();
+        private readonly ReactiveDictionary<ItemDefinition, InventoryItemData> _items = new();
 
-        public IReadOnlyReactiveDictionary<ItemIdEnum, InventoryItemData> Items => _items;
+        public IReadOnlyReactiveDictionary<ItemDefinition, InventoryItemData> Items => _items;
 
-        public bool AddItem(ItemIdEnum itemId, int count)
+        public bool AddItem(ItemDefinition item, int count)
         {
             if (count <= 0)
             {
@@ -23,20 +23,20 @@ namespace Farmway.Gameplay.Player
                 return false;
             }
 
-            if (_items.TryGetValue(itemId, out InventoryItemData itemData))
+            if (_items.TryGetValue(item, out InventoryItemData itemData))
             {
-                _items[itemId] = new InventoryItemData(itemId, itemData.Count + count);
+                _items[item] = new InventoryItemData(item, itemData.Count + count);
                 return true;
             }
 
-            _items.Add(itemId, new InventoryItemData(itemId, count));
+            _items.Add(item, new InventoryItemData(item, count));
             return true;
         }
 
-        public bool RemoveItem(ItemIdEnum itemId) =>
-            RemoveItem(itemId, GetItemsCount(itemId));
+        public bool RemoveItem(ItemDefinition item) =>
+            RemoveItem(item, GetItemsCount(item));
 
-        public bool RemoveItem(ItemIdEnum itemId, int count)
+        public bool RemoveItem(ItemDefinition item, int count)
         {
             if (count <= 0)
             {
@@ -44,40 +44,40 @@ namespace Farmway.Gameplay.Player
                 return false;
             }
 
-            if (!_items.TryGetValue(itemId, out InventoryItemData itemData))
+            if (!_items.TryGetValue(item, out InventoryItemData itemData))
             {
-                Debug.LogError($"Item {itemId} not found");
+                Debug.LogError($"Item {item} not found");
                 return false;
             }
 
             if (itemData.Count < count)
             {
-                Debug.LogError($"Not enough {itemId} in inventory");
+                Debug.LogError($"Not enough {item} in inventory");
                 return false;
             }
 
             int newCount = itemData.Count - count;
 
             if (newCount > 0)
-                _items[itemId] = new InventoryItemData(itemId, newCount);
+                _items[item] = new InventoryItemData(item, newCount);
             else
-                _items.Remove(itemId);
+                _items.Remove(item);
 
             return true;
         }
 
-        private int GetItemsCount(ItemIdEnum itemId) =>
-            _items.TryGetValue(itemId, out InventoryItemData itemData) ? itemData.Count : 0;
+        private int GetItemsCount(ItemDefinition item) =>
+            _items.TryGetValue(item, out InventoryItemData itemData) ? itemData.Count : 0;
     }
 
     public readonly struct InventoryItemData
     {
-        public ItemIdEnum ItemId { get; }
+        public ItemDefinition Item { get; }
         public int Count { get; }
 
-        public InventoryItemData(ItemIdEnum itemId, int count)
+        public InventoryItemData(ItemDefinition item, int count)
         {
-            ItemId = itemId;
+            Item = item;
             Count = Math.Max(0, count);
         }
     }
